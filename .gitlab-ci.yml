@@ -1,0 +1,15 @@
+# stages:
+#   - DeployDevelop
+
+# DeployDevelop:
+#   stage: DeployDevelop
+#   image: leomin07/node:14-buster-slim
+#   only: ['develop']
+#   script:
+#     - mkdir -p ~/.ssh
+#     - ssh-keyscan -H "$IP" >> ~/.ssh/known_hosts
+#     - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+#     - chmod 700 ~/.ssh/id_rsa
+#     - ssh ubuntu@$IP "cd ~/chat-app && sudo rm -rf src"
+#     - rsync --progress -avzh -e "ssh " --rsync-path="sudo rsync" --exclude='.git' . ubuntu@$IP:~/chat-app
+#     - ssh ubuntu@$IP "cd ~/chat-app && sudo yarn install && sudo yarn build && sudo rsync -avzh ./dist/* /var/www/chat-app/html"
