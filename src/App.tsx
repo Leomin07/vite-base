@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Loading } from './common/Loading';
 import Home from './routes/Home';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<React.Suspense children={<Home />} />} />
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 };

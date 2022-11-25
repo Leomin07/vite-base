@@ -1,6 +1,3 @@
-/* SPDX-FileCopyrightText: 2014-present Kriasoft */
-/* SPDX-License-Identifier: MIT */
-
 import * as React from 'react';
 
 export const Home = React.lazy(() => import('./Home'));
